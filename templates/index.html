@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Shortener by gihpee (тестовое для OZON)</title>
+</head>
+<body>
+<h1>Сервис по сокращению ссылок</h1>
+{{if .Status}}
+<p>{{.Status}}</p>
+{{end}}
+{{if .Link}}
+<p>Сокращённая ссылка: <a href="http://localhost:8080/{{.Code}}" target="_blank">http://localhost:8080/{{.Code}}</a></p>
+<p>Оригинальная: <a href="{{.Link}}" target="_blank">{{.Link}}</a></p>
+{{else}}
+<br>
+<form action="/" name=f method="POST">
+    <p>Введите оригинальную ссылку для получения укороченной:<br>
+    <input maxLength=1500 size=90
+           name=p value="" title="">
+    <input type=submit value="POST" name=Enter>
+</form>
+<br>
+<form action="/" name=d method="GET">
+    <p>Введите укороченную ссылку для получения оригинальной (БЕЗ 'localhost:8080/'):<br>
+    <input maxLength=1500 size=90
+           name=g value="" title="">
+    <input type=submit value="GET" name=Enter>
+</form>
+<br>
+{{end}}
+</body>
+</html>

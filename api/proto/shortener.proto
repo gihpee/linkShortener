@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./";
+
+service linkShortener {
+  rpc Short (UrlRequest) returns (UrlResponse);
+  rpc Expand (UrlRequest) returns (UrlResponse);
+}
+
+message UrlRequest {
+  string url = 1;
+}
+
+message UrlResponse {
+  string orig_url = 1;
+  string short_url = 2;
+}
